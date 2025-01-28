@@ -1,0 +1,6 @@
+-keep class com.yourpackage.** { *; }
+-keep class okhttp3.** { *; }
+-keep class retrofit2.** { *; }
+-keep class com.google.gson.** { *; }
+-keep class dio.** { *; }
+-keep class com.fasterxml.jackson.** { *; }
