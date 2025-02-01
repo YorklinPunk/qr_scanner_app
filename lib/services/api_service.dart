@@ -26,10 +26,26 @@ class ApiService {
   ApiService({required String baseUrl, bool ignoreBadCertificates = false})
       : dio = createDio(baseUrl: baseUrl, ignoreBadCertificates: ignoreBadCertificates);
 
+  // Future<List<UserModel>> fetchUsers() async {
+  //   const url = '/api/participants';
+
+  //   try {
+  //     final response = await dio.get(url);
+  //     if (response.statusCode == 200) {
+  //       final List<dynamic> usersJson = response.data['data'] ?? [];
+  //       return usersJson.map((json) => UserModel.fromJson(json)).toList();
+  //     } else {
+  //       throw Exception('Error al cargar los datos: ${response.statusCode}');
+  //     }
+  //   } on DioException catch (e) {
+  //     throw Exception('Error en la solicitud: $e');
+  //   }
+  // }
   Future<List<UserModel>> fetchUsers() async {
-    const url = '/api/participants';
+    const url = 'AKfycbx1GecgRStxWzmHOnUY_z9KGuHuQPZPqbJQ8l7IMAqBT_IJg1KUrr73vsLHtdk22lWEcw/exec'; // Reemplaza con la URL de process.env.URL_APP_SCRIP
 
     try {
+      print(dio.options.baseUrl);
       final response = await dio.get(url);
       if (response.statusCode == 200) {
         final List<dynamic> usersJson = response.data['data'] ?? [];
@@ -44,13 +60,14 @@ class ApiService {
 
   Future<ResponseModel> fetchUser(UpdateModel data) async {
     const url = '/api/participants/update';
-
     try {
+
       final response = await dio.post(
         url,
         data: data.toJson(),
       );
       return ResponseModel.fromJson(response.data);
+
     } on DioException catch (e) {
       throw Exception('Error al cargar los datos: $e');
     }

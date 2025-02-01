@@ -5,7 +5,7 @@ import 'screens/home_screen.dart';
 
 void main() {
   final apiService = ApiService(
-    baseUrl: 'https://concert-webapi.abexacloud.com',
+    baseUrl: 'https://script.google.com/macros/s/',
     ignoreBadCertificates: true
   );
 
@@ -15,7 +15,7 @@ void main() {
 class MyApp extends StatelessWidget {
   final ApiService apiService;
 
-  const MyApp({Key? key, required this.apiService}) : super(key: key);
+  const MyApp({super.key, required this.apiService});
 
   @override
   Widget build(BuildContext context) {

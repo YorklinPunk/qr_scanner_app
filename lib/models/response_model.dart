@@ -13,7 +13,7 @@ class ResponseModel {
     return ResponseModel(
       success: json['success'],
       message: json['message'],
-      error: json['error']
+      error: json['error'] ?? "",
     );
   }
 }

@@ -15,14 +15,14 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     
 
-    final _apiService = ApiService(
+    final apiService = ApiService(
       //baseUrl: 'https://concert-webapi.abxcloud.com',
       baseUrl: 'https://concert-webapi.abexacloud.com',
       //https://beedronewebapi.abexacloud.com/api/Query/seeConfiguration
       ignoreBadCertificates: false, // Establecer en true solo en entornos de desarrollo
     );
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp(apiService: _apiService));
+    await tester.pumpWidget(MyApp(apiService: apiService));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
